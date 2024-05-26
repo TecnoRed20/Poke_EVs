@@ -1,0 +1,88 @@
+.card-container {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(154, 154, 154);
+  border-radius: 5px;
+}
+
+.card-container-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #454545;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.card-title-name {
+  font-size: 1.2em;
+  color: white;
+  margin-left: 10px;
+  white-space: nowrap;
+  max-width: 70%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-title-id {
+  color: white;
+  margin-right: 5px
+}
+
+.card-container-img {
+  display: flex;
+  justify-content: center;
+}
+
+.card-img-img {
+  height: 120px;
+  width: 120px;
+}
+
+.card-container-stats {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+.card-stats-table {
+  width: 80%;
+  border-collapse: collapse;
+}
+
+.card-stats-table td {
+  width: 50%;
+  text-align: center;
+  padding: 2px;
+}
+
+.stats-hp {
+  color: rgb(120, 165, 74);
+}
+.stats-attack {
+  color: rgb(217, 183, 47);
+}
+.stats-defense {
+  color: rgb(200, 115, 47);
+}
+.stats-special-attack {
+  color: rgb(113, 179, 195);
+}
+.stats-special-defense {
+  color: rgb(75, 143, 228);
+}
+.stats-speed {
+  color: rgb(185, 109, 200);
+}
+
+.stats-font {
+  font-family: "Exo 2", sans-serif;
+  font-size: 1.2em;
+  letter-spacing: 1px;
+  font-weight: bold;
+  text-shadow: 
+      -1px -1px 0 #000,  
+        1px -1px 0 #000,
+      -1px  1px 0 #000,
+        1px  1px 0 #000; 
+}

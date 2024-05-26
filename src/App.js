@@ -1,24 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import './App.css'
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchData } from './store/actions';
+import Card from './component/Card';
 
 function App() {
+  const dispatch = useDispatch();
+  const data = useSelector(state => state.data);
+  const loading = useSelector(state => state.loading);
+  const error = useSelector(state => state.error);
+  const totalLimit = useSelector(state => state.totalLimit) ?? 1302
+  const [offset, setOffset] = useState(0);
+  const limit = 30; // Número de elementos a cargar por llamada
+
+  useEffect(() => {
+    dispatch(fetchData(limit, offset));
+  }, [dispatch, offset]);
+  
+  const handleScroll = () => {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 1500 && !loading && offset <= totalLimit) {
+      setOffset(prevOffset => prevOffset + limit);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+    // eslint-disable-next-line no-use-before-define
+  }, [loading]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <nav>...</nav>
+      <header>...</header>
+      <article className='main-container-article'>
+        {data.map((data_, index) => (
+          <Card key={index} data={data_}></Card>
+        ))}
+      </article>
+      {loading && 
+        <p>Cargando...</p>
+      }
+      {error && 
+        <p>Error: {error.message}</p>
+      }
+      <footer>...</footer>
+    </main>
   );
 }
 
