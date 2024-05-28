@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './App.css'
+import './Animation_loader.css'
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchData } from './store/actions';
 import Card from './component/Card';
@@ -26,7 +27,7 @@ function App() {
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-    // eslint-disable-next-line no-use-before-define
+    // eslint-disable-next-line
   }, [loading]);
 
   return (
@@ -39,7 +40,23 @@ function App() {
         ))}
       </article>
       {loading && 
-        <p>Cargando...</p>
+        <div class="main-container-loader">
+          <div class="container-loader">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+          </div>
+        </div>
       }
       {error && 
         <p>Error: {error.message}</p>
@@ -50,3 +67,6 @@ function App() {
 }
 
 export default App;
+
+
+
