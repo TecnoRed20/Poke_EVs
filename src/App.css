@@ -1,9 +1,21 @@
 .main-container-article {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 10px;
-  width: 80%;
+  width: 95%;
   margin: auto;
+}
+
+body {
+  padding-bottom: 63px;
+  padding-top: 90px;
+
+  background-color: #ffffff;
+  background-image: url("https://www.transparenttextures.com/patterns/dark-geometric.png");
+}
+
+html {
+  overflow-y: scroll; /* Mantiene la barra de desplazamiento visible siempre */
 }
 
 .main-container-loader {

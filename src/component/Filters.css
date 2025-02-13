@@ -1,0 +1,71 @@
+/* Contenedor principal */
+.input-form {
+  font-family: Arial, sans-serif;
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos */
+.input-form h2,
+.input-form h3 {
+  text-align: center;
+  color: #333;
+}
+
+/* Contenedor de los inputs en fila */
+.input-row {
+  display: flex;
+  flex-wrap: wrap; /* Permite que se ajusten si hay poco espacio */
+  justify-content: space-between;
+  gap: 15px;
+}
+
+/* Cada grupo de input */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1; /* Para que se repartan el espacio */
+  min-width: 100px;
+}
+
+/* Etiquetas */
+.input-group label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+/* Campos de entrada */
+.input-group input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+  text-align: center;
+  width: 100%;
+}
+
+/* Efecto al enfocar el input */
+.input-group input:focus {
+  border-color: #ffcb05; /* Amarillo Pokémon */
+  outline: none;
+}
+
+/* Caja de valores actuales */
+.values-box {
+  background: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  color: #222;
+  overflow: auto;
+  margin-top: 15px;
+}

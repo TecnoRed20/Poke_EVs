@@ -3,6 +3,7 @@ export const FETCH_DATA_REQUEST = 'FETCH_DATA_REQUEST';
 export const FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS';
 export const FETCH_DATA_FAILURE = 'FETCH_DATA_FAILURE';
 export const UPDATE_TOTAL_LIMIT = 'UPDATE_TOTAL_LIMIT';
+export const UPDATE_FILTERS = 'UPDATE_FILTERS';
 
 export const addData = (names) => ({
   type: ADD_DATA,
@@ -26,6 +27,11 @@ export const updateTotalLimit = (total) => ({
   type: UPDATE_TOTAL_LIMIT,
   payload: total
 });
+
+export const updateFilter = ({name, value}) => ({
+  type: UPDATE_FILTERS,
+  payload: {name, value}
+})
 
 export const fetchData = (limit, offset) => async (dispatch) => {
   const apiUrl = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`;

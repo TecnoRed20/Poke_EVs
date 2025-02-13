@@ -1,5 +1,5 @@
 // src/reducer.js
-import { ADD_DATA, FETCH_DATA_REQUEST, FETCH_DATA_SUCCESS, FETCH_DATA_FAILURE, UPDATE_TOTAL_LIMIT } from './actions';
+import { ADD_DATA, FETCH_DATA_REQUEST, FETCH_DATA_SUCCESS, FETCH_DATA_FAILURE, UPDATE_TOTAL_LIMIT, UPDATE_FILTERS } from './actions';
 
 const initialState = {
   data: [],
@@ -37,6 +37,15 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         totalLimit: action.payload,
+      };
+    case UPDATE_FILTERS:
+      const { name, value } = action.payload;
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          [name]: parseInt(value)
+        }
       };
     default:
       return state;
