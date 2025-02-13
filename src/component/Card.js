@@ -23,40 +23,42 @@ function Card(props) {
 
       <div className='card-container-stats'>
         <table className='card-stats-table'>
-          {data.stats.map(stat_ => {
-            let name;
-            switch (stat_.stat.name) {
-              case 'hp':
-                name = 'HP'
-                break;
-              case 'attack':
-                  name = 'ATTACK'
+          <tbody key={"stats_for_" + id}>
+            {data.stats.map(stat_ => {
+              let name;
+              switch (stat_.stat.name) {
+                case 'hp':
+                  name = 'HP'
                   break;
-              case 'defense':
-                  name = 'DEFENSE'
+                case 'attack':
+                    name = 'ATTACK'
+                    break;
+                case 'defense':
+                    name = 'DEFENSE'
+                    break;
+                case 'special-attack':
+                    name = 'SP. ATK'
+                    break;
+                case 'special-defense':
+                    name = 'SP. DEF'
+                    break;
+                case 'speed':
+                    name = 'SPEED'
+                    break;
+                default:
+                  name = 'Undefine'
                   break;
-              case 'special-attack':
-                  name = 'SP. ATK'
-                  break;
-              case 'special-defense':
-                  name = 'SP. DEF'
-                  break;
-              case 'speed':
-                  name = 'SPEED'
-                  break;
-              default:
-                name = 'Undefine'
-                break;
-            }
-            
-            const effort = stat_.effort
-            return (
-              <tr className={"stats-" + stat_.stat.name + " stats-font"}>
-                <td>{name}</td>
-                <td>{effort}</td>
-              </tr>
-            )
-          })}
+              }
+              
+              const effort = stat_.effort
+              return (
+                  <tr key={id+name+effort} className={"stats-" + stat_.stat.name + " stats-font"}>
+                    <td>{name}</td>
+                    <td>{effort}</td>
+                  </tr>
+              )
+            })}
+          </tbody>
         </table>
       </div>
 

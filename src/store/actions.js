@@ -52,3 +52,21 @@ export const fetchData = (limit, offset) => async (dispatch) => {
     dispatch(fetchDataFailure(error));
   }
 };
+
+export const filterByEffort = (data, effortFilters) => {
+  return data.filter(pokemon => {
+    return Object.entries(effortFilters).every(([key, value]) => {
+      const statMap = {
+        hp: "hp",
+        attack: "attack",
+        defense: "defense",
+        spAttack: "special-attack",
+        spDefense: "special-defense",
+        speed: "speed"
+      };
+
+      const stat = pokemon.stats.find(s => s.stat.name === statMap[key]);
+      return stat && (stat.effort === value || value === 0);
+    });
+  });
+}

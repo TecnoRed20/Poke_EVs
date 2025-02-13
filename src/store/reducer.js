@@ -5,7 +5,8 @@ const initialState = {
   data: [],
   loading: false,
   error: null,
-  totalLimit: null
+  totalLimit: null,
+  filters: {hp: 0, attack: 0, defense: 0, spAttack: 0, spDefense: 0, speed:0}
 };
 
 const rootReducer = (state = initialState, action) => {
