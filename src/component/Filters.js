@@ -13,13 +13,22 @@ const Filters = () => {
     dispatch(updateFilter({name, value}));
   };
 
+  const statMap = {
+    hp: "Health",
+    attack: "Attack",
+    defense: "Defense",
+    spAttack: "Sp. Attack",
+    spDefense: "Sp. Defense",
+    speed: "Speed"
+  };
+
   return (
     <div className="input-form">
-      <h2>Introduce los valores</h2>
+      <h2>Filtro EVs</h2>
       <form className="input-row">
         {Object.keys(filters).map((stat) => (
           <div key={stat} className="input-group">
-            <label>{stat.toUpperCase()}:</label>
+            <label>{statMap[stat]}:</label>
             <input
               type="number"
               name={stat}
